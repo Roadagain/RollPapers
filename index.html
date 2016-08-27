@@ -6,12 +6,14 @@
   <script type='text/javascript'>
     var show = function() {
       $.get("http://sabae.club/siot/", function(r){
+        alert(r.responseText);
+        alert(r.responseText.replace(/<.*>/g, ''));
         src = eval(r.responseText.replace(/<.*>/g, '')).filter(function (x){
           return x.channel === 5;
         }).pop();
         var el = document.getElementById("view");
         alert(src);
-        alert(JSON,stringfy(src));
+        alert(JSON,stringify(src));
         el.innerHTML = JSON.stringify(src);
       });
     };
