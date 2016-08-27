@@ -15,9 +15,18 @@
         var el = document.getElementById("view");
         console.log(src);
         console.log(JSON.stringify(src));
-        el.innerHTML = "巻数：" + src.value;
+        el.innerHTML = "巻数：" + myRound(src.value/8.0, 2);
       });
     };
+    
+   function myRound(val, precision){
+     digit = Math.pow(10, precision);
+     val = val * digit;
+ 
+     val = Math.round(val);
+     val = val / digit;
+     return val;
+   }
     
     window.onload = function() {
       show();
