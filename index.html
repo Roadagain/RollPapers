@@ -1,1 +1,20 @@
+<!DOCTYPE HTML>
+<head>
+  <script type='text/javascript'>
+    var showTemperature = function() {
+  	var url = "http://sabae.club/siot/";
+	  jsonp(url + "?callback=" + getCallbackMethod(function(data) {
+//		 dump(data);
+		 var t = getTemperature(data);
+		 get("tempval").textContent = t;
+	}));
+};
+
+window.onload = function() {
+	showTemperature();
+}
+  </script>
+</head>
 こんにちは、さいころ！
+
+</HTML>
