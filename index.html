@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <title>巻きすぎ注意</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://rawgit.com/padolsey-archive/jquery.fn/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
   <script type='text/javascript'>
@@ -14,7 +15,7 @@
         var el = document.getElementById("view");
         console.log(src);
         console.log(JSON.stringify(src));
-        el.innerHTML = JSON.stringify(src);
+        el.innerHTML = "巻数：" + src.value;
       });
     };
     
@@ -24,7 +25,7 @@
   </script>
 </head>
 <body>
-  こんにちは、さいころ！
+  <h1>巻きすぎ注意</h1>
   <p id="view"></p>
 </body>
 </html>
