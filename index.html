@@ -7,10 +7,11 @@
     var show = function() {
       var src;
       $.get("http://sabae.club/siot/", function(r){
-      src = r.responseText;
+        src = eval(r.responseText).filter(function (x){
+          return x.channel === 5;
+        }).pop();
       });
       var el = document.getElementById("view");
-      alert(src);
       el.innerHTML = src;
     };
     
