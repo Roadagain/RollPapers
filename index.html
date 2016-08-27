@@ -1,29 +1,24 @@
 <!DOCTYPE HTML>
 <head>
+  <script src="https://github.com/padolsey-archive/jquery.fn/blob/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
   <script type='text/javascript'>
-    var showTemperature = function() {
-  	var url = "http://sabae.club/siot/";
-	  jsonp(url + "?callback=" + getCallbackMethod(function(data) {
-//		 dump(data);
-		 var t = getTemperature(data);
-		 get("tempval").textContent = t;
-	}));
-    };
-	
-    var getCallbackMethod = function(callback) {
-	var scallback = "_cb_" + (Math.random() * 1000000 >> 0);
-	window[scallback] = function(data) {
-		window[scallback] = null;
-		callback(data);
-	};
-	return scallback;
+    var show = function() {
+      var src;
+      $.get("http://sabae.club/siot/", function(r){
+      src = r.responseText;
+      });
+      var el = document.getElementById("view");
+      el.innerHTML = src;
     };
     
     window.onload = function() {
-      showTemperature();
+      show();
     }
   </script>
 </head>
-こんにちは、さいころ！
-
+<body>
+  こんにちは、さいころ！
+  <p id="view"></p>
+</body>
 </HTML>
