@@ -9,14 +9,10 @@
   <script type='text/javascript'>
     var show = function() {
       $.get("http://sabae.club/siot/", function(r){
-        console.log(r.responseText);
-        console.log(r.responseText.replace(/<.*>/g, ''));
         src = eval(r.responseText.replace(/<.*>/g, '')).filter(function (x){
           return x.channel === 5;
         }).pop();
         var el = document.getElementById("result");
-        console.log(src);
-        console.log(JSON.stringify(src));
         el.innerHTML = myRound(100 - src.value/8.0, 1) + "巻き";
       });
     };
@@ -24,7 +20,6 @@
    function myRound(val, precision){
      digit = Math.pow(10, precision);
      val = val * digit;
- 
      val = Math.round(val);
      val = val / digit;
      return val;
