@@ -27,6 +27,7 @@
    }
     
     window.onload = function() {
+      $.ajaxSetup({cache: false});
       window.setInterval(show, 5000);
     }
   </script>
