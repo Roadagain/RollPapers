@@ -8,11 +8,20 @@
 		 var t = getTemperature(data);
 		 get("tempval").textContent = t;
 	}));
-};
-
-window.onload = function() {
-	showTemperature();
-}
+    };
+	
+    var getCallbackMethod = function(callback) {
+	var scallback = "_cb_" + (Math.random() * 1000000 >> 0);
+	window[scallback] = function(data) {
+		window[scallback] = null;
+		callback(data);
+	};
+	return scallback;
+    };
+    
+    window.onload = function() {
+      showTemperature();
+    }
   </script>
 </head>
 こんにちは、さいころ！
