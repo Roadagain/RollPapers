@@ -8,13 +8,17 @@
   <script type="text/javascript" src="https://rawgit.com/padolsey-archive/jquery.fn/master/cross-domain-ajax/jquery.xdomainajax.js"></script>
   <script type='text/javascript'>
     var show = function() {
-      $.get("http://sabae.club/siot/", function(r){
-        src = eval(r.responseText.replace(/<.*>/g, '')).filter(function (x){
-          return x.channel === 5;
-        }).pop();
-        console.log(src);
-        var el = document.getElementById("result");
-        el.innerHTML = myRound(100 - src.value/8.0, 1) + "巻き";
+      $.ajax({
+        url:"http://sabae.club/siot/",
+        success: function(r){
+          src = eval(r.responseText.replace(/<.*>/g, '')).filter(function (x){
+            return x.channel === 5;
+          }).pop();
+          console.log(src);
+          var el = document.getElementById("result");
+          el.innerHTML = myRound(100 - src.value/8.0, 1) + "巻き";
+        },
+        cache: false
       });
     };
     
