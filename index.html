@@ -17,7 +17,7 @@
         var el = document.getElementById("result");
         console.log(src);
         console.log(JSON.stringify(src));
-        el.innerHTML = myRound(src.value/8.0, 2) + "巻き";
+        el.innerHTML = myRound(100 - src.value/8.0, 1) + "巻き";
       });
     };
     
